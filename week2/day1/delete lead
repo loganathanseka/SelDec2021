@@ -1,0 +1,46 @@
+package week2.day1;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class deletelead {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leaftaps.com/opentaps/control/main/");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//input[@id='username']")).sendKeys("DemoSalesManager");
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("crmsfa");
+		driver.findElement(By.xpath("//input[@class='decorativeSubmit']")).click();
+		driver.findElement(By.xpath("//div[@id='label']/a")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Leads')]")).click();
+		driver.findElement(By.xpath("//a[text()='Find Leads']")).click();
+		driver.findElement(By.xpath("(//input[@name='firstName' ])[3]")).sendKeys("loganathan");
+		driver.findElement(By.xpath("(//input[@name='lastName'])[3]")).sendKeys("sekar");
+		driver.findElement(By.xpath("(//input[@name='companyName'])[2]")).sendKeys("test leaf");
+		driver.findElement(By.xpath("//button[text()='Find Leads']")).click();
+		Thread.sleep(3000);
+		String value = driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a")).getText();
+		System.out.println(value);
+		int value1 = Integer.parseInt(value);
+		if(value1 == 10226) {
+			driver.findElement(By.xpath("//div[@class='x-grid3-cell-inner x-grid3-col-partyId']/a")).click();
+			driver.findElement(By.xpath("//div[@class='frameSectionExtra']/a[text()='Delete']")).click();
+			
+		}
+		else {
+			System.out.println("Lead ID not Matches");
+		}
+		
+		
+
+	}
+
+}
