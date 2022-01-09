@@ -1,0 +1,18 @@
+package student;
+
+public class axisbank {
+	public void deposit(){
+		System.out.println("deposit = 100000");
+		
+	}
+
+	public static void main(String[] args) {
+		axisbank ax = new axisbank();
+		bank bx = new bank();
+		bx.savings();
+		bx.deposit();
+		ax.deposit();
+
+	}
+
+}
