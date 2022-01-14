@@ -1,0 +1,21 @@
+package week3day2;
+
+public class anagram {
+
+	public static void main(String[] args) {
+		String name = "logan";
+		String name1 = "sekar";
+		
+		if(name.length() == name1.length()) {
+			System.out.println("given two string length are equal");
+		}
+		String name2 = name+" "+name1;
+		char[] name3;
+		name3 = name2.toCharArray();
+		
+		
+		System.out.println(name3);
+
+	}
+
+}
